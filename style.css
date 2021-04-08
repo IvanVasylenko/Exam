@@ -1,0 +1,120 @@
+* {
+  box-sizing: border-box;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0;
+}
+
+.people {
+ display: grid;
+ gap: 10px;
+ padding: 30px 5px;
+}
+
+@media (min-width: 1000px) {
+  .people {
+    grid-template-columns: repeat(4, 220px);
+  }
+}
+@media (max-width: 999px) {
+  .people {
+    grid-template-columns: repeat(2, 220px);
+  }
+}
+
+.person__photo {
+ position: relative;
+}
+
+.person__photo-img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  transition: border-radius 1s linear;
+}
+
+.person__rank {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 84px;
+  right: 10px;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background-color: white;
+
+  font-family: Arial;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: bold;
+  
+  color: #8B0000;;
+}
+
+.person {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ margin: 10px;
+ transition: transform 1s linear; 
+}
+
+.person__name {
+  font-family: Arial;
+  font-size: 20px;
+  line-height: 23px;
+  font-weight: bold;
+  align-self: center;
+  justify-self: center;
+  color: #2F4F4F;
+}
+
+.person:hover {
+  position: relative;
+  z-index: 1;
+  background-color: #eee;
+  border-radius: 10px 10px 0 0;
+  margin: 0;
+  padding: 10px;
+  transform: scale(1.1);
+}
+
+.person:hover .extra {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -30px;
+  width: 220px;
+  padding-top: 0;
+  padding-bottom: 16px;
+  border-radius: 0 0 10px 10px ;
+  text-align: center;
+  background-color: #eee;
+  
+  font-family: Arial;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.person:hover .person__photo-img {
+  border-radius: 60px;
+}
+
+.extra {
+ display: none;
+}
+
+.extra__pay::before {
+  content: "$";
+}
+
+.extra__pay::after {
+  content: "M";
+}
